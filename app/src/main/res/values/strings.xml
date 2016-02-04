@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">JavaQuiz</string>
+    <string name="question_text">
+        All primates have tails.
+    </string>
+    <string name="true_button">True</string>
+    <string name="false_button">False</string>
+    <string name="action_settings">Settings</string>
+</resources>
