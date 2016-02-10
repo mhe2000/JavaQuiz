@@ -6,10 +6,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import static com.example.maryjean.javaquiz.R.id.next_button;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button mTrueButton;
     private Button mFalseButton;
+    private Button mNextButton;
+    private Button mPreviousButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         mTrueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,R.string.incorrect_toast,Toast.LENGTH_SHORT)
+                Toast.makeText(MainActivity.this, R.string.incorrect_toast, Toast.LENGTH_SHORT)
                         .show();
 
             }
@@ -31,6 +35,22 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){
                 Toast.makeText(MainActivity.this,R.string.correct_toast,Toast.LENGTH_SHORT)
                         .show();
+
+            }
+        });
+        mNextButton = (Button) findViewById(R.id.next_button);
+        mNextButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                //code to go through list of questions
+
+            }
+        });
+        mPreviousButton = (Button) findViewById(R.id.previous_button);
+        mPreviousButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                //code to go through list of questions
 
             }
         });
