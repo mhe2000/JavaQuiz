@@ -21,13 +21,15 @@ public class MainActivity extends AppCompatActivity {
 
     int questionID = 0;
     boolean answer = true;
-    Question question = new Question(questionID, answer);
-    QuestionBank bank = new QuestionBank();
+    QuestionBank QuesBank = new QuestionBank();
+
+    List<Question> Questions = QuesBank.getQuestionList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
 
         mTrueButton = (Button) findViewById(R.id.true_button);
@@ -52,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         mNextButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if (mQuestionBank.hasMoreQuestion())//code to go through list of questions
+                //code to go through list of questions
 
             }
         });
