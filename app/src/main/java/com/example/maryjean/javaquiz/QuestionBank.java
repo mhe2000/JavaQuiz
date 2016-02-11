@@ -35,7 +35,9 @@ class QuestionBank {
     }
 
     public Question getNextQuestion(){
-        mCurrentIndex++;
+        if (mCurrentIndex < mQuestionList.size()-1){
+            mCurrentIndex++;
+        }
         return mQuestionList.get(mCurrentIndex);
     }
     public Question getPreviousQuestion(){
