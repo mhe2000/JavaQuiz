@@ -19,18 +19,17 @@ public class MainActivity extends AppCompatActivity {
     private Button mPreviousButton;
     private TextView mQuestionTextView;
 
-    int questionID = 0;
-    boolean answer = true;
     QuestionBank QuesBank = new QuestionBank();
 
-    List<Question> Questions = QuesBank.getQuestionList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        Question currentQuestion = QuesBank.getNextQuestion();
+        mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
+        mQuestionTextView.setText(currentQuestion.getTextResId());
 
         mTrueButton = (Button) findViewById(R.id.true_button);
         mTrueButton.setOnClickListener(new View.OnClickListener() {
