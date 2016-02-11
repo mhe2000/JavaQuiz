@@ -4,7 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.List;
 
 import static com.example.maryjean.javaquiz.R.id.next_button;
 
@@ -14,11 +17,18 @@ public class MainActivity extends AppCompatActivity {
     private Button mFalseButton;
     private Button mNextButton;
     private Button mPreviousButton;
+    private TextView mQuestionTextView;
+
+    int questionID = 0;
+    boolean answer = true;
+    Question question = new Question(questionID, answer);
+    QuestionBank bank = new QuestionBank();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         mTrueButton = (Button) findViewById(R.id.true_button);
         mTrueButton.setOnClickListener(new View.OnClickListener() {
@@ -42,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         mNextButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                //code to go through list of questions
+                if (mQuestionBank.hasMoreQuestion())//code to go through list of questions
 
             }
         });
