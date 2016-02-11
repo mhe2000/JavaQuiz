@@ -6,9 +6,9 @@ import java.util.List;
 /**
  * Created by Maryjean on 2/10/2016.
  */
-public class QuestionBank {
-    public List<Question> mQuestionList = new ArrayList<>();
-    public int mCurrentIndex = -1;
+class QuestionBank {
+    private List<Question> mQuestionList = new ArrayList<>();
+    private int mCurrentIndex = -1;
 
 
     public QuestionBank(){
@@ -33,8 +33,15 @@ public class QuestionBank {
     public void setCurrentIndex(int currentIndex) {
         mCurrentIndex = currentIndex;
     }
+
     public Question getNextQuestion(){
         mCurrentIndex++;
+        return mQuestionList.get(mCurrentIndex);
+    }
+    public Question getPreviousQuestion(){
+        if (mCurrentIndex > 0){
+            mCurrentIndex--;
+        }
         return mQuestionList.get(mCurrentIndex);
     }
 }

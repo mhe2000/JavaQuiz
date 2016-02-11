@@ -3,7 +3,7 @@ package com.example.maryjean.javaquiz;
 /**
  * Created by Maryjean on 2/10/2016.
  */
-public class Question {
+class Question {
     private int mTextResId;
     private boolean mAnswer;
 
