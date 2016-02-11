@@ -27,27 +27,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mTrueButton = (Button) findViewById(R.id.true_button);
+        mFalseButton = (Button) findViewById(R.id.false_button);
+        mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
+
         Question currentQuestion = QuesBank.getNextQuestion();
         setUpQuestion(currentQuestion);
 
-        mTrueButton = (Button) findViewById(R.id.true_button);
-        mTrueButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, R.string.incorrect_toast, Toast.LENGTH_SHORT)
-                        .show();
 
-            }
-        });
-        mFalseButton = (Button) findViewById(R.id.false_button);
-        mFalseButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Toast.makeText(MainActivity.this,R.string.correct_toast,Toast.LENGTH_SHORT)
-                        .show();
-
-            }
-        });
         mNextButton = (Button) findViewById(R.id.next_button);
         mNextButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -67,7 +54,46 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setUpQuestion(Question currentQuestion) {
-        mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
+
         mQuestionTextView.setText(currentQuestion.getTextResId());
+
+        if (currentQuestion.isAnswer()) {
+            mTrueButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(MainActivity.this, R.string.correct_toast, Toast.LENGTH_SHORT)
+                            .show();
+
+                }
+            });
+
+            mFalseButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(MainActivity.this, R.string.incorrect_toast, Toast.LENGTH_SHORT)
+                            .show();
+
+                }
+            });
+        }
+        else {
+            mTrueButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(MainActivity.this, R.string.incorrect_toast, Toast.LENGTH_SHORT)
+                            .show();
+
+                }
+            });
+
+            mFalseButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(MainActivity.this, R.string.correct_toast, Toast.LENGTH_SHORT)
+                            .show();
+
+                }
+            });
+        }
     }
 }
