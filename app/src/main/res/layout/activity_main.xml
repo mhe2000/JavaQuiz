@@ -10,23 +10,26 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:id="@+id/linearLayout"
-        android:gravity="center">
+        android:gravity="center"
+        style="?android:attr/buttonBarButtonStyle">
 
         <Button
         android:id="@+id/true_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/true_button"
-        android:background="#4caf50"
-        />
+        android:background="#81c784"
+        style="?android:attr/buttonBarButtonStyle"
+        android:textColor="#4a148c"/>
 
         <Button
         android:id="@+id/false_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/false_button"
-        android:background="#4caf50"
-        />
+        android:background="#81c784"
+        style="?android:attr/buttonBarButtonStyle"
+        android:textColor="#4a148c"/>
     </LinearLayout>
 
     <Button
@@ -34,9 +37,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/previous_button"
-        android:background="#c8e6c9"
+        android:background="#a5d6a7"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:textColor="#4a148c"/>
 
 
     <Button
@@ -44,15 +49,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/next_button"
-        android:background="#c8e6c9"
+        android:background="#a5d6a7"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:textColor="#4a148c"/>
 
     <TextView
         android:id="@+id/question_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
-        android:layout_above="@+id/linearLayout"/>
+        android:layout_above="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
+        android:textColor="#4a148c"
+        android:textAppearance="?android:textAppearanceLarge"/>
 
 </RelativeLayout>
