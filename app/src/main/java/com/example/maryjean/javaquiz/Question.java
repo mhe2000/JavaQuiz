@@ -1,11 +1,15 @@
 package com.example.maryjean.javaquiz;
 
 /**
- * Created by Maryjean on 2/10/2016.
+ * @author      Maryjean Emerson <maryjean_emerson@hotmail.com>
+ * @version     1.15               (current version number of program)
+ *
+ * Class created to contain the resource Id of the question in memory.
+ * There is also a way to check if the answer is correct that the user chose.
  */
 class Question {
-    private int mTextResId;
-    private boolean mAnswer;
+    private final int mTextResId;
+    private final boolean mAnswer;
 
     public Question(int textResId, boolean answer) {
         mTextResId = textResId;
@@ -16,15 +20,7 @@ class Question {
         return mTextResId;
     }
 
-    public void setTextResId(int textResId) {
-        mTextResId = textResId;
-    }
-
     public boolean isAnswer() {
         return mAnswer;
-    }
-
-    public void setAnswerTrue(boolean answer) {
-        mAnswer = answer;
     }
 }

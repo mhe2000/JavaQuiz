@@ -4,10 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Maryjean on 2/10/2016.
+ * @author      Maryjean Emerson <maryjean_emerson@hotmail.com>
+ * @version     1.15               (current version number of program)
+ *
+ * Create an array list to hold multiple true and false questions
+ * as well as the answer (either True or False) from the strings.xml file.
+ *
+ *
  */
 class QuestionBank {
-    private List<Question> mQuestionList = new ArrayList<>();
+    private final List<Question> mQuestionList = new ArrayList<>();
     private int mCurrentIndex = -1;
 
 
@@ -18,21 +24,6 @@ class QuestionBank {
         mQuestionList.add(new Question(R.string.question_porcupine, false));
     }
 
-    public List<Question> getQuestionList() {
-        return mQuestionList;
-    }
-
-    public void setQuestionList(List<Question> questionList) {
-        mQuestionList = questionList;
-    }
-
-    public int getCurrentIndex() {
-        return mCurrentIndex;
-    }
-
-    public void setCurrentIndex(int currentIndex) {
-        mCurrentIndex = currentIndex;
-    }
 
     public Question getNextQuestion(){
         if (mCurrentIndex < mQuestionList.size()-1){

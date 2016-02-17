@@ -15,11 +15,9 @@ public class MainActivity extends AppCompatActivity {
 
     private Button mTrueButton;
     private Button mFalseButton;
-    private Button mNextButton;
-    private Button mPreviousButton;
     private TextView mQuestionTextView;
 
-    QuestionBank QuesBank = new QuestionBank();
+    private final QuestionBank QuesBank = new QuestionBank();
 
 
     @Override
@@ -35,18 +33,18 @@ public class MainActivity extends AppCompatActivity {
         setUpQuestion(currentQuestion);
 
 
-        mNextButton = (Button) findViewById(R.id.next_button);
-        mNextButton.setOnClickListener(new View.OnClickListener(){
+        Button mNextButton = (Button) findViewById(R.id.next_button);
+        mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 setUpQuestion(QuesBank.getNextQuestion());
 
             }
         });
-        mPreviousButton = (Button) findViewById(R.id.previous_button);
-        mPreviousButton.setOnClickListener(new View.OnClickListener(){
+        Button mPreviousButton = (Button) findViewById(R.id.previous_button);
+        mPreviousButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 setUpQuestion(QuesBank.getPreviousQuestion());
             }
         });

@@ -8,7 +8,6 @@
     <string name="false_button">False</string>
     <string name="next_button">Next</string>
     <string name="previous_button">Previous</string>
-    <string name="action_settings">Settings</string>
     <string name="correct_toast">Correct!</string>
     <string name="incorrect_toast">Incorrect!</string>
     <string name="content_desc_orang">Orangutan</string>
