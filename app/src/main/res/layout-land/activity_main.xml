@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d1c4e9">
+
+    <TextView
+        android:id="@+id/question_text_view"
+        android:textColor="#1b5e20"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/previous_button"
+        android:layout_marginBottom="104dp"
+        android:layout_toStartOf="@+id/next_button"
+        android:layout_toLeftOf="@+id/next_button"
+        android:layout_marginRight="100dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout"
+        android:gravity="center"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_above="@+id/previous_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="31dp">
+
+        <Button
+        android:id="@+id/true_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/true_button"
+        android:background="#81c784"
+        android:textColor="#4a148c"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        style="?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+        android:id="@+id/false_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/false_button"
+        android:background="#81c784"
+        android:textColor="#4a148c"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        style="?android:attr/buttonBarButtonStyle"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/previous_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/previous_button"
+        android:background="#a5d6a7"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:textColor="#4a148c"
+        android:layout_margin="16dp"/>
+
+
+
+
+    <Button
+        android:id="@+id/next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next_button"
+        android:background="#a5d6a7"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:textColor="#4a148c"
+        android:layout_margin="16dp"/>
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true">
+            <ImageView
+                android:id="@+id/orang_image_view"
+                android:layout_width="149dp"
+                android:layout_height="62dp"
+                android:src="@drawable/orang"
+                android:contentDescription="@string/content_desc_orang"
+                android:layout_marginTop="50dp"/>
+
+            <ImageView
+                android:id="@+id/koala_image_view"
+                android:layout_width="148dp"
+                android:layout_height="66dp"
+                android:src="@drawable/koala"
+                android:contentDescription="@string/content_desc_koala"
+                android:layout_marginTop="50dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+            <ImageView
+                android:id="@+id/porcupine_image_view"
+                android:layout_width="149dp"
+                android:layout_height="62dp"
+                android:src="@drawable/porcupine"
+                android:contentDescription="@string/content_desc_porcupine"
+                android:layout_marginTop="50dp"/>
+
+            <ImageView
+                android:id="@+id/monkey_image_view"
+                android:layout_width="149dp"
+                android:layout_height="62dp"
+                android:src="@drawable/monkey"
+                android:contentDescription="@string/content_desc_monkey"
+                android:layout_marginTop="50dp"/>
+        </LinearLayout>
+
+</RelativeLayout>

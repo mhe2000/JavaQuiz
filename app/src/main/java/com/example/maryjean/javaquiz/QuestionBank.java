@@ -1,5 +1,7 @@
 package com.example.maryjean.javaquiz;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +18,7 @@ class QuestionBank {
     private final List<Question> mQuestionList = new ArrayList<>();
     private int mCurrentIndex = -1;
 
+    private static final String Tag = "QuestionBank";
 
     public QuestionBank(){
         mQuestionList.add(new Question(R.string.question_primates, false));
@@ -31,10 +34,20 @@ class QuestionBank {
         }
         return mQuestionList.get(mCurrentIndex);
     }
+    public Question getQuestion(){
+        return mQuestionList.get(mCurrentIndex);
+    }
     public Question getPreviousQuestion(){
         if (mCurrentIndex > 0){
             mCurrentIndex--;
         }
         return mQuestionList.get(mCurrentIndex);
+    }
+    public int getQuestionIndex(){
+        return mCurrentIndex;
+    }
+    public void setQuestionIndex(int QuesIndex){
+        mCurrentIndex = QuesIndex;
+        Log.d(Tag, String.valueOf(mCurrentIndex));
     }
 }
