@@ -14,4 +14,5 @@
     <string name="content_desc_porcupine">Porcupine</string>
     <string name="content_desc_koala">Koala</string>
     <string name="content_desc_monkey">Monkey</string>
+    <string name="done_with_quiz">Congratulations!! You got all the questions correct!</string>
 </resources>
