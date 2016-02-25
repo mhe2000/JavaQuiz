@@ -12,12 +12,14 @@ import android.widget.Toast;
 import java.util.List;
 
 import static com.example.maryjean.javaquiz.R.id.next_button;
+import static com.example.maryjean.javaquiz.R.id.true_button;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button mTrueButton;
     private Button mFalseButton;
     private TextView mQuestionTextView;
+
 
     private final QuestionBank QuesBank = new QuestionBank();
     private static final String Tag = "Main";
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         mFalseButton = (Button) findViewById(R.id.false_button);
         mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
 
-        Question currentQuestion;
+        final Question currentQuestion;
 
         if(savedInstanceState != null){
             int curQuestionIndex = savedInstanceState.getInt(IndexKey);
@@ -55,12 +57,11 @@ public class MainActivity extends AppCompatActivity {
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                checkIsComplete();
                 setUpQuestion(QuesBank.getNextQuestion());
-                Intent i = new Intent(MainActivity.this, CongratsActivity.class);
-                startActivity(i);
-
             }
         });
+
         Button mPreviousButton = (Button) findViewById(R.id.previous_button);
         mPreviousButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +69,14 @@ public class MainActivity extends AppCompatActivity {
                 setUpQuestion(QuesBank.getPreviousQuestion());
             }
         });
+    }
+
+    public void checkIsComplete(){
+        if(QuesBank.checkIfComplete()){
+            Intent i = new Intent(MainActivity.this, CongratsActivity.class);
+            startActivity(i);
+            MainActivity.this.startActivity(i);
+        }
     }
 
     @Override
@@ -108,6 +117,8 @@ public class MainActivity extends AppCompatActivity {
             mTrueButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    QuesBank.getQuestionAtIndex(QuesBank.getCurrentIndex()).allQuestionsCorrect = true;
+                    checkIsComplete();
                     Toast.makeText(MainActivity.this, R.string.correct_toast, Toast.LENGTH_SHORT)
                             .show();
 
@@ -117,6 +128,8 @@ public class MainActivity extends AppCompatActivity {
             mFalseButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    QuesBank.getQuestionAtIndex(QuesBank.getCurrentIndex()).allQuestionsCorrect = false;
+                    checkIsComplete();
                     Toast.makeText(MainActivity.this, R.string.incorrect_toast, Toast.LENGTH_SHORT)
                             .show();
 
@@ -127,6 +140,8 @@ public class MainActivity extends AppCompatActivity {
             mTrueButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    QuesBank.getQuestionAtIndex(QuesBank.getCurrentIndex()).allQuestionsCorrect = false;
+                    checkIsComplete();
                     Toast.makeText(MainActivity.this, R.string.incorrect_toast, Toast.LENGTH_SHORT)
                             .show();
 
@@ -136,6 +151,8 @@ public class MainActivity extends AppCompatActivity {
             mFalseButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    QuesBank.getQuestionAtIndex(QuesBank.getCurrentIndex()).allQuestionsCorrect = true;
+                    checkIsComplete();
                     Toast.makeText(MainActivity.this, R.string.correct_toast, Toast.LENGTH_SHORT)
                             .show();
 
@@ -143,6 +160,8 @@ public class MainActivity extends AppCompatActivity {
             });
         }
     }
+
+
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState ){
         super.onSaveInstanceState(savedInstanceState);

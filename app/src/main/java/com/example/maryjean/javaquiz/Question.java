@@ -10,10 +10,12 @@ package com.example.maryjean.javaquiz;
 class Question {
     private final int mTextResId;
     private final boolean mAnswer;
+    public boolean allQuestionsCorrect;
 
     public Question(int textResId, boolean answer) {
         mTextResId = textResId;
         mAnswer = answer;
+        boolean allQuestionsCorrect = false;
     }
 
     public int getTextResId() {
@@ -23,4 +25,5 @@ class Question {
     public boolean isAnswer() {
         return mAnswer;
     }
+
 }

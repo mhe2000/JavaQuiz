@@ -43,11 +43,27 @@ class QuestionBank {
         }
         return mQuestionList.get(mCurrentIndex);
     }
+    public Question getQuestionAtIndex(int index){
+        mCurrentIndex = index;
+        return mQuestionList.get(index);
+    }
     public int getQuestionIndex(){
+        return mCurrentIndex;
+    }
+    public int getCurrentIndex(){
         return mCurrentIndex;
     }
     public void setQuestionIndex(int QuesIndex){
         mCurrentIndex = QuesIndex;
         Log.d(Tag, String.valueOf(mCurrentIndex));
+    }
+
+    protected boolean checkIfComplete(){
+        for (Question item : mQuestionList){
+            if(item.allQuestionsCorrect == false){
+                return false;
+            }
+        }
+        return true;
     }
 }
