@@ -60,7 +60,7 @@ class QuestionBank {
 
     protected boolean checkIfComplete(){
         for (Question item : mQuestionList){
-            if(item.allQuestionsCorrect == false){
+            if(!item.allQuestionsCorrect){
                 return false;
             }
         }
