@@ -1,5 +1,6 @@
 package com.example.maryjean.javaquiz;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,11 +18,13 @@ public class MainActivity extends AppCompatActivity {
     private Button mCheatButton;
 
 
+
     private final QuestionBank QuesBank = new QuestionBank();
     private static final String Tag = "Main";
     private static final String IndexKey = "index";
+    private static final int REQUEST_CODE_CHEAT = 0;
 
-
+    private boolean mIsCheater;
 
 
     @Override
@@ -69,11 +72,25 @@ public class MainActivity extends AppCompatActivity {
         mCheatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cheat = new Intent(MainActivity.this, CheatActivity.class);
-                startActivity(cheat);
+                boolean answerIsTrue = QuesBank.getQuestionAtIndex(QuesBank.getCurrentIndex()).allQuestionsCorrect = true;
+                Intent i = CheatActivity.newIntent(MainActivity.this, answerIsTrue);
+                startActivityForResult(i, REQUEST_CODE_CHEAT);
 
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        if (resultCode != Activity.RESULT_OK){
+            return;
+        }
+        if(requestCode == REQUEST_CODE_CHEAT){
+            if (data == null) {
+                return;
+            }
+            mIsCheater = CheatActivity.wasAnswerShown(data);
+        }
     }
 
     public void checkIsComplete(){
@@ -117,53 +134,59 @@ public class MainActivity extends AppCompatActivity {
     private void setUpQuestion(Question currentQuestion) {
 
         mQuestionTextView.setText(currentQuestion.getTextResId());
-
-        if (currentQuestion.isAnswer()) {
-            mTrueButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    QuesBank.getQuestionAtIndex(QuesBank.getCurrentIndex()).allQuestionsCorrect = true;
-                    checkIsComplete();
-                    Toast.makeText(MainActivity.this, R.string.correct_toast, Toast.LENGTH_SHORT)
-                            .show();
-
-                }
-            });
-
-            mFalseButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    QuesBank.getQuestionAtIndex(QuesBank.getCurrentIndex()).allQuestionsCorrect = false;
-                    checkIsComplete();
-                    Toast.makeText(MainActivity.this, R.string.incorrect_toast, Toast.LENGTH_SHORT)
-                            .show();
-
-                }
-            });
+        if (mIsCheater){
+            Toast.makeText(MainActivity.this, R.string.judgment_toast, Toast.LENGTH_SHORT).show();
         }
         else {
-            mTrueButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    QuesBank.getQuestionAtIndex(QuesBank.getCurrentIndex()).allQuestionsCorrect = false;
-                    checkIsComplete();
-                    Toast.makeText(MainActivity.this, R.string.incorrect_toast, Toast.LENGTH_SHORT)
-                            .show();
+            if (currentQuestion.isAnswer()) {
+                mTrueButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        QuesBank.getQuestionAtIndex(QuesBank.getCurrentIndex()).allQuestionsCorrect = true;
+                        checkIsComplete();
+                        Toast.makeText(MainActivity.this, R.string.correct_toast, Toast.LENGTH_SHORT)
+                                .show();
 
-                }
-            });
+                    }
+                });
 
-            mFalseButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    QuesBank.getQuestionAtIndex(QuesBank.getCurrentIndex()).allQuestionsCorrect = true;
-                    checkIsComplete();
-                    Toast.makeText(MainActivity.this, R.string.correct_toast, Toast.LENGTH_SHORT)
-                            .show();
+                mFalseButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        QuesBank.getQuestionAtIndex(QuesBank.getCurrentIndex()).allQuestionsCorrect = false;
+                        checkIsComplete();
+                        Toast.makeText(MainActivity.this, R.string.incorrect_toast, Toast.LENGTH_SHORT)
+                                .show();
 
-                }
-            });
+                    }
+                });
+            }
+            else {
+                mTrueButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        QuesBank.getQuestionAtIndex(QuesBank.getCurrentIndex()).allQuestionsCorrect = false;
+                        checkIsComplete();
+                        Toast.makeText(MainActivity.this, R.string.incorrect_toast, Toast.LENGTH_SHORT)
+                                .show();
+
+                    }
+                });
+
+                mFalseButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        QuesBank.getQuestionAtIndex(QuesBank.getCurrentIndex()).allQuestionsCorrect = true;
+                        checkIsComplete();
+                        Toast.makeText(MainActivity.this, R.string.correct_toast, Toast.LENGTH_SHORT)
+                                .show();
+
+                    }
+                });
+            }
         }
+
+
     }
 
 

@@ -16,7 +16,7 @@ import java.util.List;
  */
 class QuestionBank {
     private final List<Question> mQuestionList = new ArrayList<>();
-    private int mCurrentIndex = -1;
+    public int mCurrentIndex = -1;
 
     private static final String Tag = "QuestionBank";
 
