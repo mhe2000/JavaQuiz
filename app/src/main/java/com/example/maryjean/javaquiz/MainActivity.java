@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mTrueButton;
     private Button mFalseButton;
     private TextView mQuestionTextView;
+    private Button mCheatButton;
 
 
     private final QuestionBank QuesBank = new QuestionBank();
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         mTrueButton = (Button) findViewById(R.id.true_button);
         mFalseButton = (Button) findViewById(R.id.false_button);
         mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
+        mCheatButton = (Button) findViewById(R.id.cheat_button);
 
         final Question currentQuestion;
 
@@ -62,6 +64,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 setUpQuestion(QuesBank.getPreviousQuestion());
+            }
+        });
+        mCheatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cheat = new Intent(MainActivity.this, CheatActivity.class);
+                startActivity(cheat);
+
             }
         });
     }

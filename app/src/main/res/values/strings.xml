@@ -15,4 +15,8 @@
     <string name="content_desc_koala">Koala</string>
     <string name="content_desc_monkey">Monkey</string>
     <string name="done_with_quiz">Congratulations!! You got all the questions correct!</string>
+    <string name="warning_text">Are you sure you want to do this?</string>
+    <string name="show_answer_button">Show Answer</string>
+    <string name="cheat_button">Cheat!</string>
+    <string name="judgment_toast">Cheating is wrong.</string>
 </resources>
