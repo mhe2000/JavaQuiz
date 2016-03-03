@@ -5,39 +5,41 @@
     android:layout_height="match_parent"
     android:background="#d1c4e9">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout"
-        android:gravity="center"
-        style="?android:attr/buttonBarButtonStyle"
-        android:layout_below="@+id/row_two_images_linear_layout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="122dp">
 
-        <Button
+    <Button
         android:id="@+id/true_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/true_button"
         android:background="#81c784"
         android:textColor="#4a148c"
-        android:layout_marginRight="16dp"
-        android:layout_marginEnd="16dp"
-        style="?android:attr/buttonBarButtonStyle"/>
+        android:layout_alignTop="@+id/false_button"
+        android:layout_toLeftOf="@+id/cheat_button"
+        android:layout_toStartOf="@+id/cheat_button" />
 
-        <Button
+    <Button
         android:id="@+id/false_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/false_button"
         android:background="#81c784"
         android:textColor="#4a148c"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        style="?android:attr/buttonBarButtonStyle"/>
-    </LinearLayout>
+        android:layout_marginBottom="100dp"
+        android:layout_above="@+id/next_button"
+        android:layout_toRightOf="@+id/cheat_button"
+        android:layout_toEndOf="@+id/cheat_button" />
+
+
+    <TextView
+        android:id="@+id/question_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#1b5e20"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textAlignment="center" />
 
     <Button
         android:id="@+id/previous_button"
@@ -66,66 +68,6 @@
         android:layout_margin="16dp"
         />
 
-    <TextView
-        android:id="@+id/question_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="24dp"
-        android:textColor="#1b5e20"
-        android:textAppearance="?android:textAppearanceLarge"
-        android:layout_below="@+id/row_two_images_linear_layout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp" />
-
-    <LinearLayout
-        android:id="@+id/row_one_images_linear_layout"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_alignParentTop="true"
-        android:gravity="center"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="20dp">
-
-        <ImageView
-            android:id="@+id/orang_image_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/orang"
-            android:contentDescription="@string/content_desc_orang"
-        />
-
-        <ImageView
-            android:id="@+id/koala_image_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/koala"
-            android:contentDescription="@string/content_desc_koala"/>
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/row_two_images_linear_layout"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:gravity="center"
-        android:layout_centerInParent="true"
-        android:layout_below="@id/row_one_images_linear_layout"
-        android:layout_marginTop="20dp">
-
-        <ImageView
-            android:id="@+id/porcupine_image_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/porcupine"
-            android:contentDescription="@string/content_desc_porcupine"/>
-
-        <ImageView
-            android:id="@+id/monkey_image_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/monkey"
-            android:contentDescription="@string/content_desc_monkey"/>
-    </LinearLayout>
 
     <Button
         android:layout_width="wrap_content"
@@ -134,6 +76,27 @@
         android:id="@+id/cheat_button"
         android:layout_alignBottom="@+id/next_button"
         android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/java_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/java"
+        android:contentDescription="@string/content_desc_Java"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/previous_button"
+        android:layout_above="@+id/question_text_view"
+        android:scaleType="center" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/check_score_button"
+        android:id="@+id/check_score_button"
+        android:layout_above="@+id/next_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="23dp" />
 
 
 </RelativeLayout>

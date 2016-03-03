@@ -21,10 +21,14 @@ class QuestionBank {
     private static final String Tag = "QuestionBank";
 
     public QuestionBank(){
-        mQuestionList.add(new Question(R.string.question_primates, false));
-        mQuestionList.add(new Question(R.string.question_humans, true));
-        mQuestionList.add(new Question(R.string.question_koala, false));
-        mQuestionList.add(new Question(R.string.question_porcupine, false));
+        mQuestionList.add(new Question(R.string.question_one, true));
+        mQuestionList.add(new Question(R.string.question_two, false));
+        mQuestionList.add(new Question(R.string.question_three, true));
+        mQuestionList.add(new Question(R.string.question_four, false));
+        mQuestionList.add(new Question(R.string.question_five, false));
+        mQuestionList.add(new Question(R.string.question_six, true));
+        mQuestionList.add(new Question(R.string.question_seven, true));
+        mQuestionList.add(new Question(R.string.question_eight, false));
     }
 
 

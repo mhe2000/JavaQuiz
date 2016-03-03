@@ -93,7 +93,6 @@
                 android:layout_width="149dp"
                 android:layout_height="62dp"
                 android:src="@drawable/orang"
-                android:contentDescription="@string/content_desc_orang"
                 android:layout_marginTop="50dp"/>
 
             <ImageView
@@ -101,7 +100,6 @@
                 android:layout_width="148dp"
                 android:layout_height="66dp"
                 android:src="@drawable/koala"
-                android:contentDescription="@string/content_desc_koala"
                 android:layout_marginTop="50dp"/>
         </LinearLayout>
 
@@ -117,7 +115,6 @@
                 android:layout_width="149dp"
                 android:layout_height="62dp"
                 android:src="@drawable/porcupine"
-                android:contentDescription="@string/content_desc_porcupine"
                 android:layout_marginTop="50dp"/>
 
             <ImageView
@@ -125,7 +122,6 @@
                 android:layout_width="149dp"
                 android:layout_height="62dp"
                 android:src="@drawable/monkey"
-                android:contentDescription="@string/content_desc_monkey"
                 android:layout_marginTop="50dp"/>
         </LinearLayout>
 

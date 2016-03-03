@@ -1,22 +1,24 @@
 <resources>
     <string name="app_name">JavaQuiz</string>
-    <string name="question_primates">All primates have tails.</string>
-    <string name="question_koala">Koalas are bears.</string>
-    <string name="question_humans">Humans are primates.</string>
-    <string name="question_porcupine">Porcupines can throw their quills.</string>
+    <string name="question_one">Quotes always need to surround a String.</string>
+    <string name="question_two">The keyword final means "can not be changed".</string>
+    <string name="question_three">A public class means no one can access it.</string>
+    <string name="question_four">Use the keyword to import to use built in Java Classes.</string>
+    <string name="question_five">A colon needs to be at the end of a line of code.</string>
+    <string name="question_six">A map data structure has a key and a value for parameters.</string>
+    <string name="question_seven">One of the first programs students create is "Hello World".</string>
+    <string name="question_eight">Boolean is not a primitive type.</string>
     <string name="true_button">True</string>
     <string name="false_button">False</string>
     <string name="next_button">Next</string>
     <string name="previous_button">Previous</string>
     <string name="correct_toast">Correct!</string>
     <string name="incorrect_toast">Incorrect!</string>
-    <string name="content_desc_orang">Orangutan</string>
-    <string name="content_desc_porcupine">Porcupine</string>
-    <string name="content_desc_koala">Koala</string>
-    <string name="content_desc_monkey">Monkey</string>
+    <string name="content_desc_Java">Java</string>
     <string name="done_with_quiz">Congratulations!! You got all the questions correct!</string>
     <string name="warning_text">Are you sure you want to do this?</string>
     <string name="show_answer_button">Show Answer</string>
     <string name="cheat_button">Cheat!</string>
     <string name="judgment_toast">Cheating is wrong.</string>
+    <string name="check_score_button">Check Score</string>
 </resources>
